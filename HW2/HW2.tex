@@ -1,0 +1,175 @@
+%%This is a standard LaTeX2e article document template. personal version 12/5/200%%
+\documentclass[11pt,twoside]{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%packages%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagestyle{empty}
+
+\usepackage{latexsym}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amstext}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{multicol}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{wrapfig}
+\usepackage{enumitem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%formatting%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setlength{\topmargin}{-.1in}        %%%  This sets all the spacing stuff to use the page more
+\setlength{\oddsidemargin}{0in}    %%%  efficiently than the normal "article" setup would.
+\setlength{\evensidemargin}{0in}   %%%  It's OK to play with these some.
+\setlength{\textheight}{9in}     %%%
+\setlength{\textwidth}{6.25in}     %%%
+\setlength{\headsep}{0in}          %%%
+\setlength{\headheight}{0in}       %%%
+%\setlength{\footskip}{0in}         %%%
+
+\definecolor{grn}{RGB}{0,130,0}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{center}
+{\bf \Large Math 335, Homework 2}\\
+\vspace{0.1in}
+{\Large Due Wednesday, February 10}\\
+\vspace{0.2cm}
+{\large Mark S Kim}
+\vspace{0.1cm}
+\end{center}
+
+\hrule
+
+\vspace{.2in}
+
+\begin{enumerate}
+
+\item Define a binary operation $\ast$ on $\mathbb{Z}$ by
+\[a \ast b = 2a + 2b.\]
+So, for example,
+\[1 \ast 3 = 2 \cdot 1 + 2 \cdot 3 = 8.\]
+Use a specific example to show that $\ast$ is {\it not} associative.
+
+{\color{red}Answer:}\\
+Let $a=0, b=0, c=1$.  Then
+\begin{align*}
+(a \ast b) \ast c &= (2a + 2b) \ast c = 2(2a + 2b) + 2c\\
+&= 2(2\cdot 0 + 2\cdot 0) + 2(1) = 2\\
+a \ast (b \ast c) &= a \ast (2b + 2c) = 2a + 2(2b + 2c)\\
+&= 2\cdot 0 + 2(2\cdot 0 + 2\cdot 1) = 4.
+\end{align*}
+Hence, $(a \ast b) \ast c \neq a \ast (b \ast c)$ and $\ast$ is not associative.
+
+\vspace{0.5cm}
+
+
+\item Let
+\[G = \{5,15,25,35\}.\]
+Prove that $G$ is a group under the operation of multiplication modulo $40$.  You can assume that multiplication is associative, but you should prove closure, the existence of an identity, and the existence of inverses.  ({\bf Hint}: Make a multiplication table.)
+
+{\color{red}Answer:}
+
+\begin{tabular}{ | c | c | c | c | c | }
+\hline
+$\times$ 		& $5$ 													& $15$  													& $25$  													& $35$\\\hline
+$5$					& $25 \equiv 25 \!\mod 40$			& $75 \equiv 35 \!\mod 40$				& $125 \equiv 5 \!\mod 40$				& $175 \equiv 15 \!\mod 40$\\\hline
+$15$				& $75 \equiv 35 \!\mod 40$			& $225 \equiv 25 \!\mod 40$				& $375 \equiv 15 \!\mod 40$				& $525 \equiv 5 \!\mod 40$\\\hline
+$25$				& $125 \equiv 5 \!\mod 40$			& $375 \equiv 15 \!\mod 40$				&$625 \equiv 25 \!\mod 40$				& $875 \equiv 35 \!\mod 40$\\\hline
+$35$				& $175 \equiv 15 \!\mod 40$			& $525 \equiv 5 \!\mod 40$				& $875 \equiv 35 \!\mod 40$				& $1225 \equiv 25 \!\mod 40$\\\hline
+\end{tabular}
+\setenumerate[2]{start=0, label=\arabic*.}
+\begin{enumerate}
+\item Closure: {\Large\color{grn}\checkmark}: notice from the table above that $G$ is closed under the operation of multiplication modulo $40$.
+\item Associativity: {\Large\color{grn}\checkmark}: assumed.
+\item Identity: {\Large\color{grn}\checkmark}: $e = 25 \in G$.  Notice that
+\begin{align*}
+5 \cdot 25 = 125 &\equiv 5 \!\mod 40\\
+15 \cdot 25 = 375 &\equiv 15 \!\mod 40\\
+25 \cdot 25 = 625 &\equiv 25 \!\mod 40\\
+35 \cdot 25 = 875 &\equiv 35 \!\mod 40
+\end{align*}
+\item Inverse: {\Large\color{grn}\checkmark}: notice from the table that the inverse of $a$ is $a$.  So $a \cdot a = e$ for all $a\in G$.
+\begin{align*}
+5 \cdot 5 &= 25 \equiv 25 \!\mod 40\\
+15 \cdot 15 &= 225 \equiv 25 \!\mod 40\\
+25 \cdot 25 &= 625 \equiv 25 \!\mod 40\\
+35 \cdot 35 &= 1225 \equiv 25 \!\mod 40
+\end{align*}
+\end{enumerate}
+
+\vspace{0.5cm}
+
+\item Let $n$ be any positive integer, and let
+\[U_n = \{ z \in \mathbb{C} \; | \; z^n = 1\}.\]
+(This is called the set of {\bf $n$th roots of unity}.)  For example,
+\begin{align*}
+&U_2 = \{1,-1\}\\
+&U_4 = \{1,-1,i,-i\},
+\end{align*}
+or, more weirdly,
+\[U_3 = \left\{ 1, \; -\frac{1}{2} + \frac{\sqrt{3}}{2}i, \; -\frac{1}{2} - \frac{\sqrt{3}}{2}i\right\}.\]
+(Don't worry, I'd never expect you to know that last one on your own!)  Prove that, for all $n$, the set $U_n$ is a group under the operation of multiplication.  You can assume that multiplication is associative, but you should prove closure, the existence of an identity, and the existence of inverses.
+
+{\color{red}Answer:}
+\begin{enumerate}
+\item Closure: {\Large\color{grn}\checkmark}
+
+Consider $x^n,\, y^n \in U_n$.  To prove closure, we must show that $(x\cdot y) \in U_n$.  Since $x^n = 1$, $y^n = 1$, and $1 \cdot 1 = 1$, $x^n \cdot y^n = 1$.  Then
+\begin{align*}
+1 &= x^n \cdot y^n\\
+&= (x\cdot y)^n.
+\end{align*}
+Hence, $U_n$ is closed under the operation of multiplication.
+
+\item Associativity: {\Large\color{grn}\checkmark}: assumed.
+\item Identity: {\Large\color{grn}\checkmark}: Since $z^n \cdot 1 = 1 \cdot x^n = z^n$ for all $z^n \in U_n$, the identity for $U_n$ exists and equals $1$.
+\item Inverse: {\Large\color{grn}\checkmark}
+
+Suppose the inverse to $z^n \in U_n$ is $w^n$. We need to prove that $w^n \in U_n$.  By definition, $z^n \cdot w^n = e = 1$, so $w^n = \frac{1}{z^n}$.  Since $w^n = \frac{1}{z^n} = \frac{1}{1} = 1 \in U_n$, $w^n$ exists and is in $U_n$.
+\end{enumerate}
+\vspace{0.5cm}
+
+\item Find an example of three elements $a,b,c \in D_4$ such that
+\[b \circ a = a \circ c \;\;\;\; \text{ but } \;\;\;\; b \neq c.\]
+What does this tell you about the cancellation property in $D_4$?
+
+{\color{red}Answer:}\\
+For $a,b,c \in D_4$, an example that satisfies the given property is $a = R_{90}$, $b = H$, and $c = V$, so $H \circ R_{90} = R_{90} \circ V = D$.
+
+The left cancellation property states that $a \ast b = a \ast c \implies b = c$, and the right cancellation property states that $b \ast a = c \ast a \implies b=c$.  The above statement implies that the cancellation property in $D_4$ is \emph{not} commutative (but may be commutative in certain cases).
+
+\vspace{0.5cm}
+
+
+\fbox{\parbox{0.925\textwidth}{In Problems 5, we use exponents to indicate doing the group operation repeatedly.  That is, let $G$ be a group with operation $\ast$ and let $a \in G$.  Then we write $a^2$ to mean $a \ast a$, we write $a^3$ to mean $a \ast a \ast a$, and so on.}}
+
+\vspace{0.5cm}
+
+\item  Let $G$ be any group and let $a,b \in G$.  Prove that $(a \ast b)^2 = a^2 \ast b^2$ if and only if $a \ast b = b \ast a$.
+
+\begin{proof}[\color{red}Proof.]
+For the forward direction, let $(a \ast b)^2 = a^2 \ast b^2$.  Then
+\begin{align*}
+(a \ast b)^2 &= a^2 \ast b^2\\
+(a \ast b) \ast (a \ast b) &= (a \ast a) \ast (b \ast b)\\
+a \ast (b \ast a) \ast b &= a \ast (a \ast b) \ast b \quad \text{\color{red}by associativity}\\
+b \ast a &= a \ast b \quad \text{\color{red}using cancellation property}
+\end{align*}
+
+For the reverse direction, let $a \ast b = b \ast a$.  Then
+\begin{align*}
+(a \ast b)^2 &= (a \ast b) \ast (a \ast b)\\
+&= a \ast (b \ast a) \ast b \quad \text{\color{red}by associativity}\\
+&= a \ast (a \ast b) \ast a \quad \text{\color{red}given}\\
+&= (a \ast a) \ast (b \ast b) \quad \text{\color{red}by associativity}\\
+&= a^2 \ast b^2
+\end{align*}
+\end{proof}
+
+\end{enumerate}
+\end{document}

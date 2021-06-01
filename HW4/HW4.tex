@@ -1,0 +1,108 @@
+%%This is a standard LaTeX2e article document template. personal version 12/5/200%%
+\documentclass[11pt,twoside]{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%packages%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagestyle{empty}
+
+\usepackage{latexsym}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amstext}
+\usepackage{amsmath}
+\usepackage{multicol}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{wrapfig}
+\usepackage{enumitem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%formatting%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setlength{\topmargin}{-.1in}        %%%  This sets all the spacing stuff to use the page more
+\setlength{\oddsidemargin}{0in}    %%%  efficiently than the normal "article" setup would.
+\setlength{\evensidemargin}{0in}   %%%  It's OK to play with these some.
+\setlength{\textheight}{9in}     %%%
+\setlength{\textwidth}{6.25in}     %%%
+\setlength{\headsep}{0in}          %%%
+\setlength{\headheight}{0in}       %%%
+%\setlength{\footskip}{0in}         %%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{center}
+{\bf \Large Math 335, Homework 4}\\
+\vspace{0.1in}
+{\Large Due Wednesday, March 3 (note extended deadline!)}
+\vspace{0.1cm}
+\end{center}
+
+\hrule
+
+\vspace{.2in}
+
+\begin{enumerate}
+
+\item
+
+\begin{enumerate}[label=(\alph*)]
+
+\item Calculate the orders of each of the six elements in $\mathbb{Z}_6$, which is a group under the operation of addition modulo $6$.
+
+\vspace{0.25cm}
+
+\item Calculate the orders of each of the five elements in $\mathbb{Z}_5$, which is a group under the operation of addition modulo $5$.
+
+\end{enumerate}
+
+\vspace{0.5cm}
+
+%\item Let $G$ be any group.  Prove that the order of $g$ is equal to the order of $g^{-1}$.
+%
+%\vspace{0.5cm}
+
+\item \label{infiniteorder}
+\begin{enumerate}[label=(\alph*)]
+
+\item Let $G$ be a group, and let $g \in G$ be an element with infinite order.  Prove that, for any positive integers $i$ and $j$,
+\[g^i = g^j \Rightarrow i = j.\]
+
+\vspace{0.25cm}
+
+\item Give an example to show that the result of part (a) can fail if $g$ has finite order.
+
+\vspace{0.5cm}
+
+\end{enumerate}
+
+\item \begin{enumerate}[label=(\alph*)]
+
+\item Can a finite group $G$ have an element $g$ with infinite order?  If so, give an example.  If not, prove your answer.
+
+\vspace{0.1cm}
+
+\noindent ({\bf Hint}: Consider the elements $g,g^2,g^3,g^4,\ldots$, and apply Problem~\ref{infiniteorder}.)
+
+\vspace{0.25cm}
+
+\item Can an infinite group $G$ have an element $g$ with finite order?  If so, give an example.  If not, prove your answer.
+
+\vspace{0.5cm}
+
+\end{enumerate}
+
+\item What is the order of the element
+\[f = (1,2,3,5)\;(2,4,5,6,7)\]
+in $S_7$?
+
+\vspace{0.1cm}
+\noindent ({\bf Caution}: Our theorem about orders of elements of $S_n$ doesn't immediately apply...)
+
+\vspace{0.5cm}
+
+\item What are the possible orders of elements in $S_5$?  Explain your answer.
+
+\vspace{0.5cm} 
+
+\end{enumerate}
+
+\end{document}

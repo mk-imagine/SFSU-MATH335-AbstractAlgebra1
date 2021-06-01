@@ -1,0 +1,164 @@
+%%This is a standard LaTeX2e article document template. personal version 12/5/200%%
+\documentclass[11pt,twoside]{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%packages%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagestyle{empty}
+
+\usepackage{latexsym}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amstext}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{multicol}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{wrapfig}
+\usepackage{enumitem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%formatting%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setlength{\topmargin}{-.1in}        %%%  This sets all the spacing stuff to use the page more
+\setlength{\oddsidemargin}{0in}    %%%  efficiently than the normal "article" setup would.
+\setlength{\evensidemargin}{0in}   %%%  It's OK to play with these some.
+\setlength{\textheight}{9in}     %%%
+\setlength{\textwidth}{6.25in}     %%%
+\setlength{\headsep}{0in}          %%%
+\setlength{\headheight}{0in}       %%%
+%\setlength{\footskip}{0in}         %%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{center}
+{\bf \Large Math 335, Homework 6}\\
+\vspace{0.1in}
+{\Large Due Wednesday, March 17}
+\vspace{0.1cm}
+\end{center}
+
+\hrule
+
+\vspace{.2in}
+
+\begin{enumerate}
+
+\item Apply the Fundamental Theorem of Cyclic Groups to list all of the subgroups of $\mathbb{Z}_{30}$, which is a group under addition modulo $30$.
+
+{\color{red}Answer:}\\
+Divisors of 30: 1, 2, 3, 5, 6, 10, 15.  Hence all the subgroups of $\mathbb{Z}_{30}$ are:
+\begin{align*}
+\langle 1 \rangle &\colon 30 \text{ elements}\\
+\langle 2 \rangle &\colon 15 \text{ elements}\\
+\langle 3 \rangle &\colon 10 \text{ elements}\\
+\langle 5 \rangle &\colon 6 \text{ elements}\\
+\langle 10 \rangle &\colon 3 \text{ elements}\\
+\langle 15 \rangle &\colon 2 \text{ elements}
+\end{align*}
+
+\vspace{0.5cm}
+
+\item Let $\mathbb{Z}_6 = \{0,1,2,3,4,5\}$, which is a group under addition modulo $6$, and let $S_3$ be the symmetric group, which is a group under composition.  Consider the following function $\varphi: \mathbb{Z}_6 \rightarrow S_3$:
+\begin{align*}
+\varphi(0) &= e\\
+\varphi(1) &= (1,2)\\
+\varphi(2) &= (1,3)\\
+\varphi(3) &= (2,3)\\
+\varphi(4) &= (1,2,3)\\
+\varphi(5) &= (1,3,2).
+\end{align*}
+Is $\varphi$ an isomorphism?  Prove your answer.
+
+\begin{proof}[\color{red}Proof.]As outlined above, we know that $\varphi: \mathbb{Z}_6 \rightarrow S_3$ is a bijection.  Nevertheless, recall that $\mathbb{Z}_6$ under addition modulo 6 is abelian and $S_3$ (whose operation is composition) is not.  Therefore, by the Theorem that explains the abelian properties of isomorphic groups, $\varphi$ is not an isomorphism.
+\end{proof}
+
+\vspace{0.5cm}
+
+\item Let $G$ and $H$ be two groups, and suppose that there exists an isomorphism $\varphi: G \rightarrow H$.  Prove that $G$ is abelian if and only if $H$ is abelian.
+
+\begin{proof}[\color{red}Proof.]Let $G$ and $H$ be groups and suppose $G \cong H$.  Let $G$ be abelian, meaning for all $a,b \in G$,
+\[ a \ast b = b \ast a. \]
+Applying the function $\varphi$ to $ab$ results in
+\[ \varphi(a \ast b) = \varphi(a) \ast \varphi(b). \]
+Similarly,
+\[ \varphi(b \ast a) = \varphi(b) \ast \varphi(a). \]
+Hence
+\[ \varphi(a) \ast \varphi(b) = \varphi(b) \ast \varphi(a). \]
+The argument for the converse is similar, but with $\varphi^{-1}: H \rightarrow G$.
+\end{proof}
+
+\vspace{0.5cm}
+
+\item Prove that the function $\varphi(x) = 10^x$ is an isomorphism from the group $\mathbb{R}$ (under addition) to the group $\mathbb{R}^+ = \{\text{positive real numbers}\}$ (under multiplication).
+
+\begin{proof}[\color{red}Proof.]Let $\varphi: \mathbb{R} \text{(under addition)} \to \mathbb{R}^+ \text{(under multiplication)}$ and $\varphi(x) = 10^x$.  To prove that $\varphi$ is an isomorphism, we must first prove that it is a bijection.  Recall that a function is a bijection if and only if it has an inverse.  Notice that the inverse of $\varphi(x) = 10^x$ is $\varphi^{-1}(x) = \log_{10}(x)$.  Since $\varphi^{-1}$ exists, $\varphi$ is bijective.
+
+We must now prove that
+\[ \varphi(a \ast b) = \varphi(a) \ast \varphi(b) \quad \text{for all }a,b\in G. \]
+Replacing the operations in our function to match the operations in our domain and co-domain results in the following:
+\begin{align*}
+\varphi(a \ast b) = \varphi(a) \ast \varphi(b)\\
+\varphi(a + b) = \varphi(a) \cdot \varphi(b)\\
+\varphi(a + b) = 10^a \cdot 10^b\\
+\varphi(a + b) = 10^{a+b}.
+\end{align*}
+Hence, by definition, $\varphi$ is an isomorphism.
+\end{proof}
+
+\vspace{0.5cm}
+
+\item In each of the following cases, decide whether $G$ and $H$ are isomorphic, and prove your answer.  ({\bf Hint}: In both cases, calculating orders of elements will be helpful.)
+
+\begin{enumerate}
+
+\item $G = \mathbb{Z}_4$ (under addition modulo $4$) and $H = \{1,a,b,c\}$, under the operation described by the following table:
+
+\begin{center}
+\begin{tabular}{|c||c|c|c|c|}
+\hline
+ & 1 & $a$ & $b$ & $c$\\
+ \hline
+ \hline
+  1 & $1$ & $a$ & $b$ & $c$ \\
+ \hline
+ $a$ & $a$ & 1 & $c$ & $b$ \\
+ \hline
+  $b$ & $b$ & $c$ & 1 & $a$ \\
+ \hline
+  $c$ & $c$ & $b$ & $a$ & 1 \\
+ \hline
+ \end{tabular}
+ \end{center}
+ 
+(The group $H$ is called the {\it Klein four-group}.)
+ 
+\begin{proof}[\color{red}Proof.]Let $G = \mathbb{Z}_4$ (under addition modulo $4$) and $H = \{1,a,b,c\}$, under the operation described by the above table.  Recall that by Theorem, given $G \cong H$, $G$ is cyclic if and only if $H$ is cyclic.  Recollect that $G$ is cyclic, and notice from the table that $H$ is not. Explicitly stated,
+\begin{align*}
+\langle 1 \rangle &= \{ 1 \}\\
+\langle a \rangle &= \{ 1, a \}\\
+\langle b \rangle &= \{ 1, b \}\\
+\langle c \rangle &= \{ 1, c \}.
+\end{align*}
+Therefore, there is no element $h \in H$ such that $\langle h \rangle = H$.  Hence, $G \ncong H$.
+\end{proof}
+ 
+\vspace{0.25cm}
+ 
+\item $G = S_4$ and $H = D_{12} = \{\text{symmetries of a regular } 12\text{-gon}\}$ (under composition)
+ 
+\begin{proof}[\color{red}Proof.]Let $G = S_4$ and $H = D_{12} = \{\text{symmetries of a regular } 12\text{-gon}\}$ (under composition).  Notice that $G$ does not have an order greater than $4$.  This can be illustrated as
+\begin{align*}
+\operatorname{ord}(I) &= 1\\
+\operatorname{ord}\{(1,2)\} &= 2\\
+\operatorname{ord}\{(1,2,3)\} &= 3\\
+\operatorname{ord}\{(1,2,3,4)\} &= 4.
+\end{align*}
+This remains true for any permutation of $G$.  But observe that for $H$, $\operatorname{ord}(R_{30}) = 12$ (30 degree rotation).  Recall that by Theorem, that given $G \cong H$, the number of elements in $G$ of $\operatorname{ord}(d)$ must equal the number of elements in $H$ of $\operatorname{ord}(d)$.  But the number of elements in $G$ of $\operatorname{ord}(d) = 12$ is zero, while the number of elements in $H$ of $\operatorname{ord}(d) = 12$ is \emph{not} zero.  Therefore, $G \ncong H$.
+\end{proof}
+ 
+ \vspace{0.25cm}
+ 
+\end{enumerate}
+
+\end{enumerate}
+\end{document}

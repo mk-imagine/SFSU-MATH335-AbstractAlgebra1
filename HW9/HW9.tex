@@ -1,0 +1,84 @@
+%%This is a standard LaTeX2e article document template. personal version 12/5/200%%
+\documentclass[11pt,twoside]{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%packages%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagestyle{empty}
+
+\usepackage{latexsym}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amstext}
+\usepackage{amsmath}
+\usepackage{multicol}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{wrapfig}
+\usepackage{enumitem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%formatting%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setlength{\topmargin}{-.1in}        %%%  This sets all the spacing stuff to use the page more
+\setlength{\oddsidemargin}{0in}    %%%  efficiently than the normal "article" setup would.
+\setlength{\evensidemargin}{0in}   %%%  It's OK to play with these some.
+\setlength{\textheight}{9in}     %%%
+\setlength{\textwidth}{6.25in}     %%%
+\setlength{\headsep}{0in}          %%%
+\setlength{\headheight}{0in}       %%%
+%\setlength{\footskip}{0in}         %%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{center}
+{\bf \Large Math 335, Homework 9}\\
+\vspace{0.1in}
+{\Large Due Wednesday, April 21}
+\vspace{0.1cm}
+\end{center}
+
+\hrule
+
+\vspace{.2in}
+
+\begin{enumerate}
+
+ 
+ \item Complete the second exploration problem (EP2) for your final project.  (Remember, these problems are listed at the end of the Final Project Guidelines.)  Please write which project you're working on at the top of the page, for my reference.
+ 
+\vspace{0.5cm}
+
+\item Let
+\[H = \{ e, \; (1,2)(3,4)\} \subseteq S_4,\]
+where $e$ denotes the identity permutation.
+
+\vspace{0.25cm}
+
+\noindent (a) Show that $H$ is not a normal subgroup of $S_4$.
+
+\vspace{0.5cm}
+
+\noindent (b) Consider the following three elements of $S_4$:
+\[\alpha = (2,4,3), \;\; \beta = (1,4,2), \;\;\; \gamma = (1,3,2).\]
+Show that $\alpha H = \beta H$.
+
+\vspace{0.5cm}
+
+\noindent (c) Show that $(\alpha \circ \gamma) H \neq (\beta \circ \gamma) H$.
+
+\vspace{0.5cm}
+
+\noindent (d) What do parts (b) and (c) show?
+
+\vspace{0.5cm}
+
+\item Let $G= \text{GL}(2,\mathbb{R})$ be the group of all $2 \times 2$ invertible matrices with coefficients in $\mathbb{R}$, and let
+\[H = \left\{ \left. \left(\begin{array}{cc} a & b \\ 0 & d \end{array}\right) \; \right| \; ad \neq 0 \right\} \subseteq G.\]
+Is $H$ a normal subgroup of $G$?  Prove your answer.
+
+\vspace{0.5cm}
+
+\item Let $\varphi: G\rightarrow H$ be a homomorphism of groups.  Prove that $\varphi(g^{-1}) = \varphi(g)^{-1}$ for all $g \in G$.
+
+\end{enumerate}
+
+\end{document}

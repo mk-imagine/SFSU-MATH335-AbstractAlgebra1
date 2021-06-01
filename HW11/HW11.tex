@@ -1,0 +1,115 @@
+%%This is a standard LaTeX2e article document template. personal version 12/5/200%%
+\documentclass[11pt,twoside]{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%packages%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagestyle{empty}
+
+\usepackage{latexsym}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amstext}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{multicol}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{wrapfig}
+\usepackage{enumitem}
+\usepackage{csquotes}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%formatting%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setlength{\topmargin}{-.1in}        %%%  This sets all the spacing stuff to use the page more
+\setlength{\oddsidemargin}{0in}    %%%  efficiently than the normal "article" setup would.
+\setlength{\evensidemargin}{0in}   %%%  It's OK to play with these some.
+\setlength{\textheight}{9in}     %%%
+\setlength{\textwidth}{6.25in}     %%%
+\setlength{\headsep}{0in}          %%%
+\setlength{\headheight}{0in}       %%%
+%\setlength{\footskip}{0in}         %%%
+\newcommand\ord{\operatorname{ord}}
+\newcommand\Z{\mathbb{Z}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{center}
+{\bf \Large Math 335, Homework 11}\\
+\vspace{0.1in}
+{\Large Due Wednesday, May 5}
+\vspace{0.1cm}
+\end{center}
+
+\hrule
+
+\vspace{.2in}
+
+\begin{enumerate}
+
+\item Topic 2 Summary
+
+The reading for topic two demonstrates the use of Legrange's Theorem as it applies to the rotation of objects in three dimensional space.  This section begins by defining two concepts: the \emph{stabilizer} and \emph{orbit} of a point.  The book defines the stabilizer of a point as follows:
+\begin{quote}
+Let $G$ be a group of permutations of a set $S$.  For each $i$ in $S$, let $\operatorname{stab}_G(i) = \{ \phi \in G\, | \, \phi(i) = i \}$.  We call $\operatorname{stab}_G(i)$ the \emph{stabilizer} of $i$ in $G$. (Gallian 152)
+\end{quote}
+I understand this definition to mean that the stabilizer of an element $i$ in $G$ is the set of elements in $G$ where $i$ remains fixed.  Using a square as an example, the stabilizer of a point on the square will be all symmetries that are possible while fixing that point.  The orbit of a point is similarly defined:
+\begin{quote}
+Let $G$ be a group of permutations of a set $S$.  For each $s$ in $S$, let $\operatorname{orb}_G(s) = \{ \phi(s)\, | \, \phi \in G \}$.  The set $\operatorname{orb}_G(s)$ is a subset of $S$ called the \emph{orbit of s under} $G$. (Gallian 152)
+\end{quote}
+This particular definitions was a little more difficult to understand, but I believe it is the set of permutations of an element $s$ in $S$ that exist in $G$.  In other words, it is the set of all spots an element in $S$ can occupy in $G$.
+
+Armed with these definitions, the Gallian supplies and proves the \emph{Orbit-Stabilizer Theorem}:
+\begin{quote}
+Let $G$ be a finite group of permutations of a set $S$.  Then, for any $i$ from $S$, $|G| = |\operatorname{orb}_G(i)|\,|\operatorname{stab}_G(i)|$. (Gallian 152)
+\end{quote}
+The proof is a direct result from Lagrange's Theorem, where ``$|G|/|\operatorname{stab}_G(i)|$ is the distict left cosets of $\operatorname{stab}_G(i)$ in $G$.'' (Gallian 152)  This gives us a method for counting all the rotational symmetries of different symmetrical polyhedra, but in this particular section, the polyhedra mentioned are the cube and soccer ball (truncated icosahetron).
+
+For the example of a cube, we learn that a certain face of a cube can occupy six different spots in $G$, so $\operatorname{orb}_G(1) = \{ 1,\ 2,\ 3,\ 4,\ 5,\ 6 \}$ (where each number denotes a side of the cube).  Additionally, if we fix the face number $1$, we find that $\operatorname{stab}_G(1) = \{ I,\ R_{90},\ R_{180},\ R_{270} \}$.  And using the Orbit-Stabilizer Theorem, we can conclude that
+\[ |G| = |\operatorname{orb}_G(1)|\, |\operatorname{stab}_G(1)| = 6 \cdot 4 = 24. \]
+Furthermore, by carefully labelling the eight corners of the cube so that the diagonals correspond to each other, the book proves a theorem that states
+\begin{quote}
+The group of rotations of a cube is isomorphic to $S_4$. (Gallian 154)
+\end{quote}
+
+Finally, when approaching the truncated icosahedron, using the Orbit-Stabilizer Theorem, we can find that there are $60$ rotational symmetries.  The book fixes a pentagonal face (let's call it $p$), which gives us the number of pentagons (each pentagon can occupy the space of each of the other pentagons), $|\operatorname{orb}_G(p)| = 12$, with the number of symmetries possible with a fixed pentagonal face being $|\operatorname{stab}_G(p)| = 5$.  The same problem can be approached using the hexagonal face.  Notice, however, that with a fixed hexagonal face, $h$, there are only $3$ rotational symmetries possible, so $|\operatorname{stab}_G(h)| = 3$ and $|\operatorname{orb}_G(h)| = 20$, which by using the Orbit-Stabilizer Theorem, produces the same number of rotational symmetries.
+
+The reading finishes with a short narrative on how group theory has been used to discover the property of buckyballs, which are a molecule of 60 carbon atoms arranged like a soccer ball.  There seem to be some fascinating real world applications to group theory.
+ 
+\vspace{0.5cm}
+ 
+\item Is $\Z_8 \oplus \Z_2 \cong \Z_4 \oplus \Z_4$?
+ 
+{\color{red}Answer:}\\
+No. Since the orders of elements in $\Z_8 \oplus \Z_2$ are $1,2,4,8$ and the orders of elements in $\Z_4 \oplus \Z_4$ are $1,2,4$, $\Z_8 \oplus \Z_2 \ncong \Z_4 \oplus \Z_4$.
+
+\vspace{0.5cm}
+ 
+ \item Use the Fundamental Theorem of Finite Abelian Groups to list all abelian groups of order $360$.
+ 
+{\color{red}Answer:}\\
+Notice that the prime factorization of $360$ is,
+\[ 360 = 2 \cdot 2 \cdot 2 \cdot 3 \cdot 3 \cdot 5. \]
+Hence all abelian groups of order $360$ is:
+\begin{align*}
+&\Z_2 \oplus \Z_2 \oplus \Z_2 \oplus \Z_3 \oplus \Z_3 \oplus \Z_5\\
+&\Z_2 \oplus \Z_2 \oplus \Z_2 \oplus \Z_9 \oplus \Z_5\\
+&\Z_2 \oplus \Z_4 \oplus \Z_3 \oplus \Z_3 \oplus \Z_5\\
+&\Z_2 \oplus \Z_4 \oplus \Z_9 \oplus \Z_5\\
+&\Z_8 \oplus \Z_3 \oplus \Z_3 \oplus \Z_5\\
+&\Z_8 \oplus \Z_9 \oplus \Z_5
+\end{align*}
+
+\vspace{0.25cm}
+
+\item Let
+\[ G = \{ 1, 9, 16, 22, 29, 53, 74, 79, 81 \}, \]
+which is a group under multiplication modulo $91$.  To what group of the form $\Z_{n_1} \oplus \cdots  \oplus \Z_{n_k}$ is $G$ isomorphic?
+
+{\color{red}Answer:}
+$G$ is an abelian group since multiplication of integers is commutative.  After calculating the orders of each element in $G$, we can conclude that $\ord(1) = 1$ and
+$\ord(g) = 3$ for all $g\in G \setminus\{1\}$.
+
+Since the number of elements in $G$ is $9$, $G$ is isomorphic to either $\Z_9$ or $\Z_3 \oplus \Z_3$.  The orders of elements in $\Z_9$ are $1,3,9$ and the orders of elements in $\Z_3 \oplus \Z_3$ are $1,3$.  Hence, $G$ has element orders that match $\Z_3 \oplus \Z_3$, which means $G \cong \Z_3 \oplus \Z_3$.
+
+\end{enumerate}
+
+\end{document}

@@ -1,0 +1,155 @@
+%%This is a standard LaTeX2e article document template. personal version 12/5/200%%
+\documentclass[11pt,twoside]{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%packages%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagestyle{empty}
+
+\usepackage{latexsym}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amstext}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{multicol}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{wrapfig}
+\usepackage{enumitem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%formatting%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setlength{\topmargin}{-.1in}        %%%  This sets all the spacing stuff to use the page more
+\setlength{\oddsidemargin}{0in}    %%%  efficiently than the normal "article" setup would.
+\setlength{\evensidemargin}{0in}   %%%  It's OK to play with these some.
+\setlength{\textheight}{9in}     %%%
+\setlength{\textwidth}{6.25in}     %%%
+\setlength{\headsep}{0in}          %%%
+\setlength{\headheight}{0in}       %%%
+%\setlength{\footskip}{0in}         %%%
+
+\DeclareMathOperator{\ord}{ord}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{center}
+{\bf \Large Math 335, Homework 5}\\
+\vspace{0.1in}
+{\Large Due Wednesday, March 10}\\
+\vspace{0.2cm}
+{\large Mark S Kim}
+\vspace{0.1cm}
+\end{center}
+
+\hrule
+
+\vspace{.2in}
+
+\begin{enumerate}
+
+\item Is the group $D_4$ (the group of symmetries of a square, under the operation of composition) cyclic?  Carefully explain how you know.
+
+{\color{red}Answer:}\\
+\[ D_4 = \{ I, R_{90}, R_{180}, R_{270}, H, V, D, D' \} \]
+
+In order for $D_4$ to be cyclic, there must be an element of $d \in D_4$ such that $\langle d \rangle = D_4$.  If we list all generators for $D_4$ we come up with the following:
+\begin{align*}
+\langle I \rangle &= \{ I \}\\
+\langle R_{90} \rangle = \langle R_{270} \rangle  &= \{ I, R_{90}, R_{180}, R_{270} \}\\
+\langle R_{180} \rangle &= \{ I, R_{180} \}\\
+\langle H \rangle &= \{ I, H \}\\
+\langle V \rangle &= \{ I, V \}\\
+\langle D \rangle &= \{ I, D \}\\
+\langle D' \rangle &= \{ I, D' \}.
+\end{align*}
+This shows that there is no $d \in D_4$ such that $\langle d \rangle = D_4$.
+
+\vspace{0.5cm}
+
+\item 
+\begin{enumerate}
+
+\item Let $G = \langle a \rangle$ be a cyclic group in which $\text{ord}(a) = \infty$.  Prove that
+\[\langle a^k \rangle \subseteq \langle a^m \rangle\]
+if and only if $m | k$.  ({\bf Hint}: A problem from Homework 4 will be helpful here.)
+
+\begin{proof}[\color{red}Proof.] For the forward direction, let $\langle a^k \rangle \subseteq \langle a^m \rangle$, which said another way means that $x \in \langle a^k \rangle$ implies $x \in \langle a^m \rangle$.  Suppose that $x = \left(a^k\right)^i$ for some $i \in \mathbb{Z}$, which implies that $x = \left(a^m\right)^j$ for some $j \in \mathbb{Z}$.  Then,
+\begin{align*}
+a^{ki} &= a^{mj}, \text{ for some } i,j\in\mathbb{Z},\ i\neq 0, \text{ and}\\
+ki &= mj \text{ (proved in HW2)}.
+\end{align*}
+Recall that the division algorithm states
+\[
+k = mq + r, \quad 0 \leq r \leq (m-1), \quad q,r\in\mathbb{Z}.
+\]
+By substituting for $k$ in the division algorithm, we find that $mqi + ri = mj$.  But since $i\neq 0$ as stated earlier, $r$ must be zero and $k = mj$ for some $j\in\mathbb{Z}$.  By definition, we can conclude that $m | k$.
+\vspace{0.25cm}
+
+Conversely, let $m | k$.  By definition, this means that $k = mp$ for some $p\in\mathbb{Z}$.  Suppose $x\in\langle a^k \rangle$ for some $q\in\mathbb{Z}$. Then,
+\begin{align*}
+x &= \left(a^k\right)^q = a^{kq}\\
+&= a^{mpq} = \left(a^m\right)^{pq}
+\end{align*}
+Hence $x \in \langle a^m \rangle$ and $\langle a^k \rangle \subseteq \langle a^m \rangle$.
+\end{proof}
+
+\vspace{0.25cm}
+
+\item Give a counterexample to show that part (a) is false if $\text{ord}(a)$ is finite.  ({\bf Hint}: Try making $m$ larger than the order of $a$.)
+
+{\color{red}Answer:}\\
+Let $G = \langle 3 \rangle = \{ 0, 1, 2, 3 \} = \mathbb{Z}_{4}$ under addition modulo $4$.  Then,
+\begin{align*}
+\langle a^k \rangle = \langle 3\cdot2 \rangle = \langle 2 \rangle &= \{ 0, 2 \}\\
+\langle a^m \rangle = \langle 3\cdot3 \rangle = \langle 1 \rangle &= \{ 0, 1, 2, 3 \}.
+\end{align*}
+Notice that $\langle 3\cdot2 \rangle \subseteq \langle 3\cdot3 \rangle$, but $3$ does not divide $2$.
+\vspace{0.25cm}
+
+\end{enumerate}
+
+\item Let $G$ be any group, and let $a\in G$ be an element of order $15$.  What is the order of $a^6$?  Of $a^{10}$?  Prove your answers.
+
+{\color{red}Answer:}\\
+By saying that $\ord(a) = 15$, we are saying that $k = 15$ is the least positive integer such that $a^k = e$.  This also means that for all $k < 15$, $a^k \neq e$.  To find the order of $a^6$, we can evaluate $\left(a^6\right)^n$ as follows:
+\begin{align*}
+\left(a^6\right)^1 = a^6 \neq e\\
+\left(a^6\right)^2 = a^{12} \neq e\\
+\left(a^6\right)^3 = a^{18} = a^{15} \cdot a^3 = e \cdot a^3 = a^3 \neq e\\
+\left(a^6\right)^4 = a^{24} = e \cdot a^9 = a^9 \neq e\\
+\left(a^6\right)^5 = a^{30} = e^2 = e.
+\end{align*}
+This shows that $\ord(a^6) = 5$ as any $n < 5$ does not produce the identity.  Similarly, we can follow the previous steps to find that $\ord(a^{10}) = 3$.
+
+\vspace{0.5cm}
+
+\item Consider the group $\mathbb{Z}_n = \{0,1,2,\ldots, n-1\}$ under addition modulo $n$.  We say that an element $k$ of this group {\it generates} $\mathbb{Z}_n$ if $\langle k \rangle = \mathbb{Z}_n$.
+
+\begin{enumerate}
+
+\item List all of the elements of $\mathbb{Z}_9$ that generate $\mathbb{Z}_9$.
+
+{\color{red}Answer:}\\
+All of the elements of $\mathbb{Z}_9$ that generate $\mathbb{Z}_9$ are: 1, 2, 4, 5, 7, and 8.  ($\langle 1 \rangle = \langle 2 \rangle = \langle 4 \rangle = \langle 5 \rangle = \langle 7 \rangle = \langle 8 \rangle = \{ 0, 1, 2, 3, 4, 5, 6, 7, 8 \}$)
+
+\vspace{0.25cm}
+
+\item Prove that $k$ generates $\mathbb{Z}_n$ if and only if $\text{gcd}(n,k) = 1$.
+
+\begin{proof}[\color{red}Proof.]Suppose that $k$ generates the group $G = \mathbb{Z}_n$ under addition modulo $n$, which we know to be a cyclic group.  By Theorem, $\ord(k) = n$ (the number of elements in $G$).  Furthermore, by yet another Theorem, $\ord(k) = \frac{n}{\operatorname{gcd}(k,n)}$.  Therefore if $\ord(k) = n$, then it must be true that $\operatorname{gcd}(k,n) = 1$.
+
+Conversely, suppose $\text{gcd}(n,k) = 1$ and consider the cyclic group $G = \mathbb{Z}_n$ under addition modulo $n$.  Given any subgroup $\langle k \rangle$, $\ord(k) = \frac{n}{\operatorname{gcd}(k,n)} = n$, which is the number of elements in $G$.  Since $\langle k \rangle$ contains all elements in $\mathbb{Z}_n$, it generates $\mathbb{Z}_n$ under addition modulo $n$.
+\end{proof}
+
+\vspace{0.25cm}
+
+\end{enumerate}
+
+\item Consider the group $\mathbb{Z}_p = \{0,1,2,\ldots, p-1\}$ under addition modulo $p$, where $p$ is a prime number.  What are all of the subgroups of $\mathbb{Z}_p$?  Carefully explain how you know that you've found them all.
+
+{\color{red}Answer:}\\
+The fundamental Theorem of Cyclic Groups states that there is exactly one subgroup of $G$ with $d$ elements -- namely $\left\langle g^{n/d} \right\rangle$.  Since $n$ is a prime number $p$, only two divisors exist for $p$, which are exclusively $1$ and $p$.  Hence there are only two subgroups that exist for $\mathbb{Z}_p$, which are the trivial subgroup $\{ 0 \}$ and the non-proper subgroup $\langle g \rangle = \mathbb{Z}_p$ under addition modulo $p$.
+
+\end{enumerate}
+
+\end{document}

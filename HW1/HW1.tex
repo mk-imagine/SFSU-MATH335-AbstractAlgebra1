@@ -1,0 +1,117 @@
+%%This sets the overall style (things like font and spacing).  To change the font size, you can replace "11pt" with something else.
+\documentclass[11pt,twoside]{article}
+
+
+%%There are different options about whether pages have numbers or headings.  The "empty" option has neither of those things.
+\pagestyle{empty}
+
+
+%%These packages give some of the standard symbols, and give you the ability to do some extra formatting things like add lists enumerated by letters.
+\usepackage{latexsym}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amstext}
+\usepackage{amsmath}
+\usepackage{multicol}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{wrapfig}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{gensymb}
+
+%%These set the margins.  You're welcome to play with them if you prefer different spacing.
+\setlength{\topmargin}{-.1in}        
+\setlength{\oddsidemargin}{0in}    
+\setlength{\evensidemargin}{0in}   
+\setlength{\textheight}{9in}     
+\setlength{\textwidth}{6.25in}     
+\setlength{\headsep}{0in}          
+\setlength{\headheight}{0in} 
+
+%% These are cusomized commands
+
+
+\begin{document}
+
+\begin{center}
+{\bf \Large Math 335, Homework 1}\\
+\vspace{0.1in}
+{\Large Due Wednesday, February 3}\\
+\vspace{0.5cm}
+Mark Kim
+\vspace{0.1cm}
+\end{center}
+
+\hrule
+
+\vspace{.2in}
+
+\begin{enumerate}
+
+\item Write a brief (about two-paragraph) mathematical autobiography to help me get to know you.  Some questions you might choose to answer in this autobiography are:
+\begin{itemize}
+\item How did you become interested in mathematics?  How long have you been studying it, and what courses or aspects of the subject have you particularly enjoyed?
+\item What do you hope to do after you graduate?  In what ways do you think your mathematics education will help you with those plans?
+\item Based on our discussion on the first day of class, why do you think it might be useful---for you, personally---to learn abstract algebra?
+\end{itemize}
+
+{\color{red}Answer}\\
+I have had an interest in mathematics at a very young age.  My parents' singular focus on academics exposed me to math concepts that were far beyond my grade level.  I remember when I first encountered Algebra when I was in fourth grade.  It was a revelation to me that unknown values could be depicted with letters.  Nevertheless, family pressures left that curiousity and interest largely unexplored for most of my life: it was made clear to me that I was to be a Doctor.  Throughout my academic studies, I eagerly absorbed whatever mathematical knowledge I could despite my focus on biological sciences.  I am not completely sure exactly what draws me to mathematics, but I love how rewarding it is.  Its difficulty requires hard work and reasoning, but when the pieces come together, the answers are elegant and awe inspiring.  I don't really think I have encountered a course in math that I disliked, but perhaps the most enjoyable course I have taken was Math 301.
+
+After graduation, I intend to continue on to graduate school and particularly into a doctoral program.  I want to research human behavior from a mathematical perspective.  Specifically, I want to use data to understand hidden drivers for human behavior and life-defining decisions.  I believe that gaining a substantial amount of mathematical maturity, I will be best equipped to pursue my interests.  As for abstract algebra, I think it will be extremely useful to me.  From our discussion on our first day of class, it seems that abstract algebra is a study of objects and operations.  Since I am also a Computer Science major, I believe that understanding abstract algebra will give me a more intuitive understanding of abstractions within the context of programming.  Outside of what we learned in class, I have heard that modern algebra is used quite extensively in cryptography (which I have a passing interest in as well).
+
+\vspace{0.5cm}
+
+\item In each of the following problems, when you are working modulo $n$, give an answer in the range $\{0,1,2, \ldots, n-1\}$.
+
+\begin{enumerate}[label=(\alph*)]
+\item Find a value of $x$ such that $5x \equiv 1 \!\mod 11$.\\
+{\color{red}Answer:} $x = 9$
+\item Is there a value of $x$ such that $5x \equiv 1 \!\mod 10$?  Carefully explain how you know.\\
+{\color{red}Answer:} Notice that $1 \!\mod 10$ is congruent to $1,11,21,31,\cdots$.  Starting at $1$, we add or subtract $10$ to reach conguence to $1 \!\mod 10$.  However, $5x \neq 1 + 10y$ for all $x,y \in \mathbb{Z}$.  Therefore, there is no value $x$ such that $5x \equiv 1 \!\mod 10$.
+\end{enumerate}
+
+\vspace{0.5cm}
+
+\item The song \href{https://www.youtube.com/watch?v=L_sG0weS1d8}{``As" from Stevie Wonder's album {\it Songs in the Key of Life}} mentions the equation
+\[8 \times 8 \times 8 = 4.\]
+Although this equation isn't true as stated, find all integers $n \geq 2$ such that the equation
+\[8 \times 8 \times 8 \equiv 4 \!\mod n\]
+is true.
+
+{\color{red}Answer:}
+\begin{align*}
+8 \times 8 \times 8 &= 512\\
+512 &\equiv 4 \!\mod 508\\
+&\equiv 4 \!\mod 2\\
+&\equiv 4 \!\mod 254\\
+&\equiv 4 \!\mod 4\\
+&\equiv 4 \!\mod 127
+\end{align*}
+
+\vspace{0.5cm}
+
+\item Is composition of symmetries of a square {\bf commutative}---that is, if $A$ and $B$ are two symmetries of a square, is it true that $A \circ B = B \circ A$?  Explain how you know.
+
+{\color{red}Answer:}
+Referring to the table we filled out in class, notice that $R_{90} \circ H = D$ and $H \circ R_{90} = D'$.  Hence $R_{90} \circ H \neq H \circ R_{90}$, so the composition of symmetries of a square are {\bf not} commutative.
+
+\vspace{0.5cm}
+
+\item Describe all of the symmetries of an equilateral triangle, in the same way that we did for symmetries of a square.  In other words, list all of the symmetries and give them names, and write down a table showing the result of composing any two symmetries.
+
+{\color{red}Answer:}
+\begin{itemize}
+\item $I \colon$ The identity (do nothing)
+\item $R_{120} \colon$ Rotate 120\degree\ counterclockwise
+\item $R_{240} \colon$ Rotate 240\degree\ counterclockwise
+\item $V \colon$ Reflect along the vertical axis
+\item $D \colon$ Reflect along the 210\degree\ diagonal
+\item $D' \colon$ Reflect along the 330\degree\ diagonal
+\end{itemize}
+
+\end{enumerate}
+
+\end{document}
